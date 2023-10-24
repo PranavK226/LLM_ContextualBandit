@@ -1,9 +1,9 @@
 from transformers import pipeline
 
-model_id = "codellama/CodeLlama-7b-hf"
-transcriber = pipeline(model=model_id, device_map="auto")
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-hf", token="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")
+#model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-7b-hf")
 
 texts = ["Does this work?"]
-
-output = transcriber(texts)
-print(output)
+print(tokenizer(texts))
